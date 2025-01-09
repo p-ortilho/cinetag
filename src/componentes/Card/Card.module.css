@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--cinza);
+    width: 220px;
+    height: 300px;
+}
+
+.container h1 {
+    margin: 0;
+    padding: .5rem;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.favoritar {
+    width: 25px;
+    padding: .5rem;
+}
