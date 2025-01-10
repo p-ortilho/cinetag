@@ -3,6 +3,8 @@ import Cabecalho from "componentes/Cabecalho";
 import Card from "componentes/Card";
 import Rodape from "componentes/Rodape";
 import Titulo from "componentes/Titulo";
+import styles from './Inicio.module.css';
+import videos from 'json/db.json'
 
 const Inicio = () => {
     return(
@@ -14,7 +16,12 @@ const Inicio = () => {
                     Um lugar para guardar seus vídeos e filmes!
                 </h1>
             </Titulo>
-            <Card titulo={'Billie'} id={'1'} imagem={'https://media.globalcitizen.org/thumbnails/bc/df/bcdf3412-5ec9-4ddd-ba4d-d409623b225c/billieeilish.jpg__1600x900_q85_crop_subsampling-2.jpg'}/>
+            <section className={styles.container}>
+                {videos.map((video) => {
+                    return <Card {...video} key={video.id}/>
+                })}
+            </section>
+            
             <Rodape/>
         </>
     );
