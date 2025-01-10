@@ -1,9 +1,14 @@
+import { useLocation } from 'react-router';
 import styles from './Titulo.module.css'
 
-const Titulo = ({children}) => {
+const Titulo = () => {
+    const rota = useLocation();
+    const titulo = rota.pathname === '/'? 'Um lugar para guardar seus vídeos e filmes!' : 'Favoritos';
     return(
         <div className={styles.titulo}>
-            {children}
+            <h1>
+                {titulo}
+            </h1>
         </div>
     );
 };
