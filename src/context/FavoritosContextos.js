@@ -1,15 +1,16 @@
 import { createContext, useState } from "react";
 
-export const FavoritosContextos = createContext();
-FavoritosContextos.displayName = "FavoritosContextos";
+export const FavoritosContext = createContext();
+FavoritosContext.displayName = "Favoritos";
 
-const FavoritosProvider = ({children}) => {
+const FavoritosProvider = ({ children }) => {
     const [favoritos, setFavoritos] = useState([]);
-    return(
-        <FavoritosContextos.Provider value={{favoritos, setFavoritos}}>
-            {children}    
-        </FavoritosContextos.Provider>
+
+    return (
+        <FavoritosContext.Provider value={{ favoritos, setFavoritos }}>
+            {children}
+        </FavoritosContext.Provider>
     );
 };
 
-export default FavoritosProvider; 
+export default FavoritosProvider;
