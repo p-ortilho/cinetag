@@ -1,11 +1,17 @@
-import videos from 'json/db.json'
 import { useParams } from 'react-router';
 import styles from './Player.module.css';
 import NaoEncontrado from 'paginas/NaoEncontrado';
+import { useEffect, useState } from 'react';
 
 const Player = () => {
     const paramentros = useParams();
-    const video = videos.find((item) => item.id === Number(paramentros.id));
+    const [video, setVideo] = useState();
+
+    useEffect(() => {
+        fetch(`https://my-json-server.typicode.com/p-ortilho/cinetag-api/videos?id=${paramentros.id}`)
+        .then((response) => response.json())
+        .then((dados) => setVideo(...dados));
+    }, []);
 
     if (!video) return <NaoEncontrado/>
 
