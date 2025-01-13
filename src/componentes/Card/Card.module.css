@@ -6,6 +6,11 @@
     width: 282px;
 }
 
+.link {
+    text-decoration: none;
+    color: var(--preto);
+}
+
 .container h1 {
     margin: 0;
     padding: .5rem;

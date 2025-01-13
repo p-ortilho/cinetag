@@ -1,10 +1,15 @@
+import { useFavoritos } from 'hooks/useFavoritos';
 import styles from './Favoritos.module.css';
+import Card from 'componentes/Card';
 
 const Favoritos = () => {
+    const {favoritos} = useFavoritos();
     return(
-        <div className={styles.favoritos}>
-            alguma coisa
-        </div>
+        <section className={styles.favoritos}>
+            {favoritos.map((favorito) => {
+                return <Card key={favorito.id} {...favorito} />
+            })}
+        </section>
     );
 };
 

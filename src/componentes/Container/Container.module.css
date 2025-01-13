@@ -1,4 +1,6 @@
 .container {
+    width: auto;
+    min-height: 500px;
     margin: 1rem 20rem;
     text-align: center;
 }

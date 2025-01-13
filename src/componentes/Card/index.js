@@ -2,6 +2,7 @@ import { useFavoritos } from 'hooks/useFavoritos';
 import styles from './Card.module.css';
 import iconeDesfavoritar from './desfavoritar.png';
 import iconeFavoritar from './favoritar.png';
+import { Link } from 'react-router';
 
 const Card = ({titulo, id, imagem}) => {
     const {favoritos, adicionarFavorito} = useFavoritos();
@@ -10,9 +11,16 @@ const Card = ({titulo, id, imagem}) => {
     const icone = favoritoAtivo ?   iconeDesfavoritar : iconeFavoritar;
     return(
         <div className={styles.container}>
-            <img src={imagem} alt={titulo}/>
-            <h1>{titulo}</h1>
-            <img src={icone} alt="Favoritar" className={styles.favoritar} onClick={() => {adicionarFavorito({id, titulo, imagem})}}/>
+            <Link to={`/video/${id}`} className={styles.link}>
+                <img src={imagem} alt={titulo}/>
+                <h1>{titulo}</h1>
+            </Link>
+            <img 
+                src={icone} 
+                alt="Favoritar" 
+                className={styles.favoritar} 
+                onClick={() => {adicionarFavorito({id, titulo, imagem})}}
+            />
         </div>
     );
 };
