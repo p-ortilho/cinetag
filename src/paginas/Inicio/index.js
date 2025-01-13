@@ -1,8 +1,16 @@
 import Card from "componentes/Card";
 import styles from './Inicio.module.css';
-import videos from 'json/db.json'
+import { useEffect, useState } from "react";
 
 const Inicio = () => {
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch("https://my-json-server.typicode.com/p-ortilho/cinetag-api/videos")
+        .then((resposta) => resposta.json())
+        .then((dados) => setVideos(dados));
+    }, []);
+
     return(
         <section className={styles.container}>
             {videos.map((video) => {
